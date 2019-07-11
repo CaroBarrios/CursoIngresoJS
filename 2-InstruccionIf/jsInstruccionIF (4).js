@@ -6,7 +6,7 @@ var edad;
 
 edad = parseInt (document.getElementById ("edad").value);
 
-if ((edad >=13) && (edad <=17))
+if ((edad >=13) && (edad <=17)) // no es necesario escribir las condiciones entre parentesis porque los operadores racionales tienen prioridad ante los operadores lògicos
 {
     alert ("Es adolescente");
 }
