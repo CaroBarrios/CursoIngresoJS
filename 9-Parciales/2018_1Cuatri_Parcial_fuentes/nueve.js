@@ -10,6 +10,9 @@ function mostrar()
  var flag = 0;
  var cantprodmenor0 = 0;
  var acumpeso = 0;
+ var contpeso = 0;
+ var promedio;
+ var menorpeso;
 
  do
  {
@@ -36,38 +39,33 @@ function mostrar()
      {
          mayorpeso = peso;
          marcapesada = marca;
-         flag = 1;
+         
      }
     // sumo la cantidad de productos que se conservan a menos de 0 grados
     if (temperatura < 0)
     {
         cantprodmenor0++; 
     }
-    // promedio del peso de todos los productos
-    if (peso >= 1 && peso <=100)
+    // peso min porque peso max ya lo tengo cuando hice la marcapesada
+    if (peso < menorpeso || flag == 0)
     {
-        acumpeso = acumpeso + peso;
+        menorpeso = peso;
+        flag = 1;
     }
-
-    prompesoprod = peso / cantidad
-
+    // guardo datos para luego calcular peso de todos los productos
+        contpeso++;
+        acumpeso = acumpeso + peso;
+    // le pregunto al usuario si desea continuar ingresando datos
      seguir = (prompt ("Desea continuar?"));
  
  } while (seguir == "s");
- 
+
+ // promedio lo calculamos fuera del do-while
+ promedio = acumpeso / contpeso;
+
  document.write ("a) La cantidad de temperaturas pares: " + contemppar + "<br>")
- document.write ("b) La marca del producto más pesado: " + marcapesada + "y el peso es: " + mayorpeso + "<br>")
+ document.write ("b) La marca del producto más pesado: " + marcapesada + " y el peso es: " + mayorpeso + "<br>")
  document.write ("c) La cantidad de productos que se conservan a menos de 0 grados: " + cantprodmenor0 + "<br>")
- document.write ("d) El promedio del peso de todos los productos: " + + "<br>")
- document.write ("f) El peso máximo y el mínimo: " +  + "<br>")
-
- /*
-    mayor = peso;
-    menor = peso;
-    prompesoprod = peso / cantidad
- */
-
-
-
-
+ document.write ("d) El promedio del peso de todos los productos: " + promedio + "<br>")
+ document.write ("f) El peso máximo " + mayorpeso + " y el mínimo: " + menorpeso + "<br>")
 }
